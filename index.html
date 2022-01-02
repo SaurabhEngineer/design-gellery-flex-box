@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    
+</head>
+
+<body>
+    <div class="header">
+        <h1>IMAGE GALLERY-flex box</h1>
+    </div>
+    <div class="responsive">
+        <div class="gImg">
+            <img src="https://images.pexels.com/photos/2897883/pexels-photo-2897883.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+            <div class="desc">Fireworks</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gImg">
+            <img src="https://images.pexels.com/photos/356043/pexels-photo-356043.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+            <div class="desc">Happy New Year</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gImg">
+            <img src="https://images.pexels.com/photos/2916820/pexels-photo-2916820.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+            <div class="desc">Art</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gImg">
+            <img src="https://images.pexels.com/photos/2694344/pexels-photo-2694344.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+            <div class="desc">Brock</div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close"></span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+    <script>
+        var modal = document.getElementById('myModal');
+        modal.addEventListener('click', function () {
+            this.style.display = "none";
+        })
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // Get all images and insert the clicked image inside the modal
+        // Get the content of the image description and insert it inside the modal image caption
+        var images = document.getElementsByTagName('img');
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        var i;
+        for (i = 0; i < images.length; i++) {
+            images[i].onclick = function () {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+                captionText.innerHTML = this.nextElementSibling.innerHTML;
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
